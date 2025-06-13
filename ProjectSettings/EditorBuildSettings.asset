@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 4925f53dcd10cbc409d0fe94fcd1a388
   - enabled: 1
     path: Assets/MyGame/Scenes/2DTonesTutorial.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: 1a673049b7e71ae41afa71f2769c8ba2
   - enabled: 1
     path: Assets/MyGame/Scenes/ToneGameV1.unity
     guid: 18fbaaa55e2a79942aa6cd1a4532efa1

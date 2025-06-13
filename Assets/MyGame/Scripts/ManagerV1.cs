@@ -12,7 +12,8 @@ public class ManagerV1 : MonoBehaviour
     [SerializeField] TMP_Text developerName;
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text highScoreText;
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource audioSource, audioSourceAnswerTone;
+    [SerializeField] AudioClip correctColor, wrongColor;
 
     private int progress = 0;
     private ColorOption currentCorrectColor;
@@ -74,12 +75,14 @@ public class ManagerV1 : MonoBehaviour
                 colorButtons[i].interactable = false;
             }
 
+            audioSourceAnswerTone.PlayOneShot(correctColor);
             audioSource.Stop();
         }
         else
         {
             gameOverImages[errorCount].color = Color.red;
             errorCount++;
+            audioSourceAnswerTone.PlayOneShot(wrongColor);
 
             if (errorCount >= maxErrors)
             {
