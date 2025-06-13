@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ManagerV1 : MonoBehaviour
@@ -9,6 +11,7 @@ public class ManagerV1 : MonoBehaviour
     [SerializeField] ColorSoundTask[] tasks; 
     [SerializeField] TMP_Text developerName;
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text highScoreText;
     [SerializeField] AudioSource audioSource;
 
     private int progress = 0;
@@ -26,13 +29,21 @@ public class ManagerV1 : MonoBehaviour
             return;
         }
 
+        highScoreText.text = PlayerPrefs.GetInt("score").ToString();
         PlayTask(tasks[progress]);
     }
 
-    public void nexttask ()
-
+    public void NextTask()
     {
         progress++;
+
+        //if (progress >= tasks.Length) 
+        //{
+        //    progress = 0;
+        //}
+
+        progress = UnityEngine.Random.Range(0, tasks.Length);
+
         PlayTask(tasks[progress]);
     }
 
@@ -41,14 +52,10 @@ public class ManagerV1 : MonoBehaviour
         audioSource.clip = task.targetSound;
         audioSource.Play();
 
-        for (int i = 0; i < colorButtons.Length; i++)
-        {
-            colorButtons[i].interactable = true;
-        }
-
         for (int i = 0; i < colorButtons.Length; i++) 
         {
             colorButtons[i].GetComponent<ColorButton>().SetButtonColor(task.options[i]);
+            colorButtons[i].interactable = true;
         }
 
         currentCorrectColor = task.correctColor;
@@ -58,14 +65,16 @@ public class ManagerV1 : MonoBehaviour
     {
         if (selectedColor == currentCorrectColor)
         {
-            Debug.Log("✅ Richtig!");
+            Debug.Log("Richtig!");
             score++;
             scoreText.text = score.ToString();
 
-            for(int i = 0; i < colorButtons.Length; i++)
+            for (int i = 0; i<colorButtons.Length; i++)
             {
                 colorButtons[i].interactable = false;
             }
+
+            audioSource.Stop();
         }
         else
         {
@@ -75,10 +84,21 @@ public class ManagerV1 : MonoBehaviour
             if (errorCount >= maxErrors)
             {
                 Debug.Log("Game Over!");
-                //LoadGameOverScene();
+                if (score > PlayerPrefs.GetInt("score"))
+                {
+                    PlayerPrefs.SetInt("score", score);
+                }
+
+                LoadGameOverScene();
             }
-            //Debug.Log("❌ Falsch!");
-            // Game Over oder Fehleranzeige
+            
         }
+
+        NextTask();
+    }
+
+    private void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

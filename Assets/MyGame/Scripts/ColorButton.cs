@@ -22,5 +22,5 @@ public class ColorButton : MonoBehaviour
     public void OnClick()
     {
         manager.OnColorButtonPressed(buttonColor);
-    } 
+    }
 }

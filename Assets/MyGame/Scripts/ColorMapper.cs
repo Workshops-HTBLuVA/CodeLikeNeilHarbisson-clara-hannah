@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class ColorMapper
 {
-    public static Color GetColor(ColorOption option)
+    public static Color GetColor(ColorOption option) 
     {
         switch (option)
         {
