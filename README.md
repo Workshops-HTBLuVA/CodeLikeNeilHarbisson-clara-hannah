@@ -10,11 +10,9 @@ https://github.com/user-attachments/assets/f718a3d8-7ac2-4315-b400-94bb37f7b587
 
 Ziele:
 
-Einblick in die 5 Phasen des Game Design
-
-Kreatives Denken mit Technik verbinden
-
-Spielerisches Coden mit Unity
++ Einblick in die 5 Phasen des Game Design
++ Kreatives Denken mit Technik verbinden
++ Spielerisches Coden mit Unity
 
 Am Ende nehmen alle ihr eigenes kleines Spiel mit nach Hause – als Erinnerung an eine neue Art, Farben zu erleben.
 
