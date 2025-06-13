@@ -1,5 +1,8 @@
 # CodeLikeNeilHarbisson-clara-hannah
 
+Game Dev Workshop – Farben hören wie Neil Harbisson In diesem Workshop entwickeln die Teilnehmenden ihr eigenes Minispiel rund um das Thema "Farben hörbar machen", inspiriert vom Cyborg-Künstler Neil Harbisson, der Farben über eine Antenne als Töne wahrnimmt.
+
+Der Einstieg erfolgt über Design und Sinneswahrnehmung – visuelle Elemente werden mit Klang verknüpft. Danach wird Schritt für Schritt ein einfaches Unity-Spiel gebaut. Ziel ist es, Farben anhand von Tönen zu erkennen und daraus ein persönliches Spielkonzept zu gestalten.
 
 https://github.com/user-attachments/assets/f718a3d8-7ac2-4315-b400-94bb37f7b587
 
